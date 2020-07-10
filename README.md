@@ -1,4 +1,4 @@
-# GEOptiSonde
+# GEOptiSonde.jl
 
 ![](doc/image.jpeg)
 
