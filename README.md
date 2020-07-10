@@ -14,7 +14,7 @@ The package dependencies include Reactive, LibSerialPort, Dates, and DataStructu
 
 ## Example usage
 
-The device is streaming data to the serial port at ~2 s resolution. Data is read by polling the port at some specified interval. The return string is parsed and placed into a circular buffer. The last valid dewpoint value of the circular is timestamped and placed into a Reactive signal. This way the polling loop speed is independent of the instrument sampling rate.
+The device is streaming data to the serial port at ~2 s resolution. Data is read by polling the port at some specified interval. The return string is parsed and placed into a circular buffer. The last valid dewpoint value of the circular buffer is timestamped and pushed into a reactive signal. This way the polling loop speed is independent of the instrument sampling rate.
 
 ```julia
 using GEOptiSonde
@@ -34,7 +34,7 @@ oneHz = every(1.0)
 pollLoop = map(_ -> GEOptiSonde.read(port), oneHz)
 ```
 
-Example output is below. Note that the instrument is polled every second, but the signal is updated only when data accumulated on the port, which is approximately every two seconds. It is also possible to run the query loop slower than the instrument, in which case the latest output will be placed in the signal loop.
+Example output is below. Note that in this example the instrument is polled every second, but the signal is updated only when data accumulated on the port, which is approximately every two seconds. It is also possible to run the query loop slower than the instrument, in which case the latest output will be placed in the signal loop.
 
 ```julia
 (2020-07-10T13:33:18.555, 16.92)
