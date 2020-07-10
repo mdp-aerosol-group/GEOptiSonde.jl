@@ -1,0 +1,16 @@
+name = "GEOptiSonde"
+uuid = "39eb008d-42cb-4a62-9bc2-66939b7d2357"
+authors = ["Markus Petters"]
+version = "0.1.0"
+
+[deps]
+LibSerialPort = "a05a14c7-6e3b-5ba9-90a2-45558833e1df"
+
+[compat]
+julia = "1.4.2"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
