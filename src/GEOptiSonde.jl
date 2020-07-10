@@ -5,9 +5,10 @@ using Reactive
 using DataStructures
 using Dates
 
-const buffer = Signal(CircularBuffer{String}(8))
+const Td = Signal((now(),0.0))
+const buffer = Signal(CircularBuffer{String}(4))
 const currentLine = Signal("")
-const Td = Signal((now(), NaN))
+
 
 """ 
     configure_port(port_name)
